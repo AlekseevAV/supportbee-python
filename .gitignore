@@ -3,5 +3,4 @@
 .settings/
 .project
 .pydevproject
-
-
+.idea/

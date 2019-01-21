@@ -169,3 +169,12 @@ class SupportBee(object):
         """
         return self._request('/tickets/%s/replies/%s.json' % (ticket_id, reply_id))
 
+    def add_label_to_ticket(self, ticket_id, label):
+        """
+        Adds the label to the ticket with id ticket_id.
+        Supported parameters are available at https://developers.supportbee.com/api#adding_label
+        Params
+            ticket_id: SuppportBee Ticket ID
+            label: label name to add
+        """
+        return self._request('/tickets/%s/labels/%s' % (ticket_id, label), method='POST')

@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
+import json
+
+import requests
+
 from supportbee.exceptions import ValidationFailureException, \
     UnAuthorizedException, AccessDeniedException, ClientException, \
     ServerFailureException, ServerException, SupportBeeException
-import requests
-import json
+
 
 class SupportBee(object):
     BASE_URL = "https://%s.supportbee.com" 
@@ -80,7 +83,6 @@ class SupportBee(object):
         """
         return self._request('/tickets/%s/archive.json' % (ticket_id), method='POST')
 
-
     def unarchive_ticket(self, ticket_id):
         """
         Unarchives the given ticket. Supported parameters are available at https://developers.supportbee.com/api#ticket_actions
@@ -106,7 +108,6 @@ class SupportBee(object):
         """
         return self._request('/tickets/%s/star.json' % (ticket_id), method='POST')
 
-
     def unstar_ticket(self, ticket_id):
         """
         Unstars the given ticket. Supported parameters are available at https://developers.supportbee.com/api#ticket_actions
@@ -114,7 +115,6 @@ class SupportBee(object):
             ticket_id: SuppportBee Ticket ID
         """
         return self._request('/tickets/%s/star.json' % (ticket_id), method='DELETE')
-
 
     def spam_ticket(self, ticket_id):
         """
@@ -124,7 +124,6 @@ class SupportBee(object):
         """
         return self._request('/tickets/%s/spam.json' % (ticket_id), method='POST')
 
-
     def unspam_ticket(self, ticket_id):
         """
         Un-spam the given ticket. Supported parameters are available at https://developers.supportbee.com/api#ticket_actions
@@ -133,7 +132,6 @@ class SupportBee(object):
         """
         return self._request('/tickets/%s/spam.json' % (ticket_id), method='DELETE')
 
-
     def trash_ticket(self, ticket_id):
         """
         Trashes the given ticket. Supported parameters are available at https://developers.supportbee.com/api#ticket_actions
@@ -141,7 +139,6 @@ class SupportBee(object):
             ticket_id: SuppportBee Ticket ID
         """
         return self._request('/tickets/%s/trash.json' % (ticket_id), method='POST')
-
 
     def untrash_ticket(self, ticket_id):
         """
